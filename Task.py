@@ -38,7 +38,7 @@ def parse_email(message):
     return headers, body
 
 #load the dataset
-emails = pd.read_csv('./dataset/emails_sample.csv')
+emails = pd.read_csv('./emails_sample.csv')
 emails['parsed'] = emails['message'].apply(parse_email)
 emails['headers'] = emails['parsed'].apply(lambda x: x[0])
 emails['body'] = emails['parsed'].apply(lambda x: x[1])
