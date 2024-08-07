@@ -1,8 +1,9 @@
 import streamlit as st
-import EmailVisualiser
+import EmailVisualiser as EV
 import Task
 import Suggestions
 
+EV.extract_entities()
 st.set_page_config(
     page_title="Home",
     page_icon="🏠",
