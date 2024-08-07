@@ -79,3 +79,4 @@ weasel==0.4.1
 wordcloud==1.9.3
 wrapt==1.16.0
 zipp==3.19.2
+en-core-web-sm
