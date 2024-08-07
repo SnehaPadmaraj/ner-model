@@ -1,4 +1,7 @@
 import streamlit as st
+import EmailVisualiser
+import Task
+import Suggestions
 
 st.set_page_config(
     page_title="Home",
