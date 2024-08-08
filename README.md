@@ -49,6 +49,7 @@ I had initially tried coding a simple K-means algorithm but the graph was not as
 6. Save the suggestions to a text file - Since this was a mockup of the app, I have not created a way to save the suggestions entered by the user to an actual file. In the future, I would implement this code so that we will be able to see the suggestions and enhancements given by the users.
    
 Instructions on running the app
+
 To host the app locally:
 1. Download the code files from the GitHub folder and make sure it's stored in a working directory you can access. 
 2. Open your terminal. 
