@@ -1,5 +1,8 @@
 import streamlit as st
 import subprocess
+import pandas as pd
+import spacy
+import spacy_streamlit
 import Task
 import Suggestions
 import EmailVisualiser 
