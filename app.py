@@ -5,10 +5,7 @@ import spacy
 import spacy_streamlit
 import Task
 import Suggestions
-import EmailVisualiser 
-
-#load spacy model
-nlp = spacy.load("en_core_web_sm")
+import EmailVisualiser
 
 st.set_page_config(
     page_title="Home",
