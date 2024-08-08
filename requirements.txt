@@ -57,7 +57,6 @@ shellingham==1.5.4
 six==1.16.0
 smart-open==7.0.4
 smmap==5.0.1
-spacy==3.7.5
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 spacy-streamlit==1.0.6
@@ -80,3 +79,8 @@ wordcloud==1.9.3
 wrapt==1.16.0
 zipp==3.19.2
 en_core_web_sm==3.4.1
+
+spacy>=2.2.0,<3.0.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz#egg=en_core_web_sm
+
+
