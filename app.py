@@ -20,7 +20,13 @@ st.markdown(
   """,
     unsafe_allow_html=True
 )
-
+try:
+    nlp = spacy.load('en_core_web_sm')
+except OSError:
+    st.warning("Downloading spaCy model...")
+    import subprocess
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load('en_core_web_sm')
 st.sidebar.title("Navigation")
 selection = st.sidebar.radio("Go to", ["Home", "Email Visualizer", "Task", "Suggestions"])
 
