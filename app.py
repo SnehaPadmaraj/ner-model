@@ -1,9 +1,8 @@
 import streamlit as st
-import EmailVisualiser as EV
 import Task
 import Suggestions
+import EmailVisualiser 
 
-EV.extract_entities()
 st.set_page_config(
     page_title="Home",
     page_icon="🏠",
@@ -22,7 +21,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.sidebar.title("Navigation")
+selection = st.sidebar.radio("Go to", ["Home", "Email Visualizer", "Task", "Suggestions"])
 
-st.markdown("""
-         # How to navigate the app:
-         ### Click on the sidebar to navigate to the different pages each with their own insights on the Enron Email Dataset""")
+if selection == "Home":
+    st.markdown("""
+         ### Click on the sidebar to navigate to the different pages each with their own insights on the Enron Email Dataset
+         """)
+elif selection == "Email Visualizer":
+    EmailVisualiser.email_visualiser()
+elif selection == "Task":
+    Task.task()  
+elif selection == "Suggestions":
+    Suggestions.suggestions() 
