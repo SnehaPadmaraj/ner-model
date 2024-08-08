@@ -44,29 +44,6 @@ emails['headers'] = emails['parsed'].apply(lambda x: x[0])
 emails['body'] = emails['parsed'].apply(lambda x: x[1])
 emails[['persons', 'orgs', 'locations']] = pd.DataFrame(emails['body'].apply(extract_entities).tolist(), index=emails.index)
 
-def create_scatter_plot(data, title):
-    #TF-IDF matrix for entities 
-    data_str = data.apply(lambda x: ' '.join(x))
-    vectorizer = TfidfVectorizer()
-    X = vectorizer.fit_transform(data_str)
-
-    #K-means clustering
-    kmeans = KMeans(n_clusters=5, random_state=0).fit(X)
-    clusters = kmeans.labels_
-
-    #dimensionality reduction with PCA 
-    pca = PCA(n_components=2)
-    X_pca = pca.fit_transform(X.toarray())
-
-    plt.figure(figsize=(12, 12))
-    scatter = plt.scatter(X_pca[:, 0], X_pca[:, 1], c=clusters, cmap=plt.cm.jet, alpha=0.6)
-    plt.title(title)
-    plt.xlabel('Entity Feature 1')
-    plt.ylabel('Entity Feature 2')
-    cluster_labels = [f'Cluster {i+1}' for i in range(len(set(clusters)))]
-    plt.legend(handles=scatter.legend_elements()[0], labels=cluster_labels, title="Clusters")
-    st.pyplot(plt)
-
 def lda_topic_modeling(entities):
     #preparing the data for LDA
     data_str = entities.apply(lambda x: ' '.join(x))
@@ -151,10 +128,6 @@ def task():
     plt.title(f"Top 10 Most Popular {entity_tag}s")
     plt.xticks(rotation=45)
     st.pyplot(plt)
-
-    #scatter plot of email addresses based on the selected entity tag
-    st.subheader(f"Clustering Based on {entity_tag}s Mentioned")
-    create_scatter_plot(entities, f"Email Senders Clustering Based on {entity_tag}s Mentioned")
 
   #Bonus Task: LDA Word Cloud Topic Modeling
     st.subheader("Bonus Task: Topic Modeling with Word Cloud")
